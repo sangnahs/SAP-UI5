@@ -1,0 +1,23 @@
+{   "format_version": 1,
+     "imports":
+     [
+     {
+     "column_mappings" : {
+     "c_id" : 1,
+     "Brand_name" : 2
+     },
+     "import_settings" : {
+     "import_columns" : [
+     "c_id",
+     "Brand_name"
+     ]
+     },
+     "source_data" : {
+     "data_type": "CSV",
+     "file_name": "App.db::brand_name.csv",
+     "has_header": false,
+     "dialect": "HANA",
+     "type_config": { "delimiter": ";" }
+     },       
+     "target_table" : "App.db::paint.brand_name" 
+     }    ]  } 

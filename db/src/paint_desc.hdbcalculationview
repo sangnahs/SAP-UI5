@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="App.db::paint_desc" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="paint_desc"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="App.db::paint_v1">
+    <resourceUri>App.db::paint_v1</resourceUri>
+  </DataSource>
+  <DataSource id="App.db::paint.paint_desc">
+    <resourceUri>App.db::paint.paint_desc</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="image">
+        <descriptions defaultDescription="image"/>
+      </viewAttribute>
+      <viewAttribute id="p_id" aggregationType="sum">
+        <descriptions defaultDescription="p_id"/>
+      </viewAttribute>
+      <viewAttribute id="paint_name">
+        <descriptions defaultDescription="paint_name"/>
+      </viewAttribute>
+      <viewAttribute id="Brand_name">
+        <descriptions defaultDescription="Brand_name"/>
+      </viewAttribute>
+      <viewAttribute id="Type">
+        <descriptions defaultDescription="Type"/>
+      </viewAttribute>
+      <viewAttribute id="c_id" aggregationType="sum">
+        <descriptions defaultDescription="c_id"/>
+      </viewAttribute>
+      <viewAttribute id="t_id" aggregationType="sum">
+        <descriptions defaultDescription="t_id"/>
+      </viewAttribute>
+      <viewAttribute id="Available_in_packs">
+        <descriptions defaultDescription="Available_in_packs"/>
+      </viewAttribute>
+      <viewAttribute id="durability">
+        <descriptions defaultDescription="durability"/>
+      </viewAttribute>
+      <viewAttribute id="price_Rs" aggregationType="sum">
+        <descriptions defaultDescription="price_Rs"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="App.db::paint_v1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="image" source="image"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="p_id" source="p_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="paint_name" source="paint_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Brand_name" source="Brand_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Type" source="Type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="c_id" source="c_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="t_id" source="t_id"/>
+    </input>
+    <input node="App.db::paint.paint_desc">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Available_in_packs" source="Available_in_packs"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="durability" source="durability"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="price_Rs" source="price_Rs"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="p_id" source="p_id"/>
+    </input>
+    <joinAttribute name="p_id"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="image" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="image"/>
+      <keyMapping columnObjectName="Join_1" columnName="image"/>
+    </attribute>
+    <attribute id="paint_name" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="paint_name"/>
+      <keyMapping columnObjectName="Join_1" columnName="paint_name"/>
+    </attribute>
+    <attribute id="Brand_name" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Brand_name"/>
+      <keyMapping columnObjectName="Join_1" columnName="Brand_name"/>
+    </attribute>
+    <attribute id="Type" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="Type"/>
+    </attribute>
+    <attribute id="Available_in_packs" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Available_in_packs"/>
+      <keyMapping columnObjectName="Join_1" columnName="Available_in_packs"/>
+    </attribute>
+    <attribute id="durability" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="durability"/>
+      <keyMapping columnObjectName="Join_1" columnName="durability"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="p_id" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="p_id"/>
+      <measureMapping columnObjectName="Join_1" columnName="p_id"/>
+    </measure>
+    <measure id="c_id" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="c_id"/>
+      <measureMapping columnObjectName="Join_1" columnName="c_id"/>
+    </measure>
+    <measure id="t_id" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="t_id"/>
+      <measureMapping columnObjectName="Join_1" columnName="t_id"/>
+    </measure>
+    <measure id="price_Rs" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="price_Rs"/>
+      <measureMapping columnObjectName="Join_1" columnName="price_Rs"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="84" y="258"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="App.db::paint_v1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="App.db::paint.paint_desc" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

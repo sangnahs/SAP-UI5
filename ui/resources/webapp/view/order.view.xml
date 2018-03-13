@@ -1,0 +1,30 @@
+<mvc:View controllerName="ui.controller.order" displayBlock="true" id="orderid" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+            <Page id="mainpageid" title="Order Details" class="sapUiStdPage" showNavButton="true"
+				  navButtonText="Back" navButtonPress="onPressDetailBack">
+				<content>
+                 <List id="o_id"
+		          items="{path:'model2>/orderlist'}"
+		headerText="Products">
+		<items>
+			<ObjectListItem
+				title="{model2>paint_name}"
+				type="Active"
+				icon="{model2>image}"
+				number="{model2>price}"
+				press="onListItemPress">
+				
+			</ObjectListItem>
+			</items>
+			</List>
+				</content>
+			</Page>
+
+		</pages>
+	</App>
+</mvc:View>

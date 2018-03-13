@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="App.db::interior_view1" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="interior_view1"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="App.db::paint.paint_details">
+    <resourceUri>App.db::paint.paint_details</resourceUri>
+  </DataSource>
+  <DataSource id="App.db::paint.paint_type">
+    <resourceUri>App.db::paint.paint_type</resourceUri>
+  </DataSource>
+  <DataSource id="App.db::paint.brand_name">
+    <resourceUri>App.db::paint.brand_name</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="c_id" aggregationType="sum">
+        <descriptions defaultDescription="c_id"/>
+      </viewAttribute>
+      <viewAttribute id="image">
+        <descriptions defaultDescription="image"/>
+      </viewAttribute>
+      <viewAttribute id="p_id" aggregationType="sum">
+        <descriptions defaultDescription="p_id"/>
+      </viewAttribute>
+      <viewAttribute id="paint_name">
+        <descriptions defaultDescription="paint_name"/>
+      </viewAttribute>
+      <viewAttribute id="t_id" aggregationType="sum">
+        <descriptions defaultDescription="t_id"/>
+      </viewAttribute>
+      <viewAttribute id="Type">
+        <descriptions defaultDescription="Type"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="App.db::paint.paint_details">
+      <mapping xsi:type="Calculation:AttributeMapping" target="c_id" source="c_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="image" source="image"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="p_id" source="p_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="paint_name" source="paint_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="t_id" source="t_id"/>
+    </input>
+    <input node="App.db::paint.paint_type">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Type" source="Type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="t_id" source="t_id"/>
+    </input>
+    <joinAttribute name="t_id"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="inner" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="c_id" aggregationType="sum">
+        <descriptions defaultDescription="c_id"/>
+      </viewAttribute>
+      <viewAttribute id="image">
+        <descriptions defaultDescription="image"/>
+      </viewAttribute>
+      <viewAttribute id="p_id" aggregationType="sum">
+        <descriptions defaultDescription="p_id"/>
+      </viewAttribute>
+      <viewAttribute id="paint_name">
+        <descriptions defaultDescription="paint_name"/>
+      </viewAttribute>
+      <viewAttribute id="t_id" aggregationType="sum">
+        <descriptions defaultDescription="t_id"/>
+      </viewAttribute>
+      <viewAttribute id="Type">
+        <descriptions defaultDescription="Type"/>
+      </viewAttribute>
+      <viewAttribute id="Brand_name">
+        <descriptions defaultDescription="Brand_name"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="c_id" source="c_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="image" source="image"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="p_id" source="p_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="paint_name" source="paint_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="t_id" source="t_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Type" source="Type"/>
+    </input>
+    <input node="App.db::paint.brand_name">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Brand_name" source="Brand_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="c_id" source="c_id"/>
+    </input>
+    <filter>&quot;t_id&quot;=1</filter>
+    <joinAttribute name="c_id"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:RankView" id="Rank_1">
+    <viewAttributes>
+      <viewAttribute id="c_id" aggregationType="sum">
+        <descriptions defaultDescription="c_id"/>
+      </viewAttribute>
+      <viewAttribute id="image">
+        <descriptions defaultDescription="image"/>
+      </viewAttribute>
+      <viewAttribute id="p_id" aggregationType="sum">
+        <descriptions defaultDescription="p_id"/>
+      </viewAttribute>
+      <viewAttribute id="paint_name">
+        <descriptions defaultDescription="paint_name"/>
+      </viewAttribute>
+      <viewAttribute id="t_id" aggregationType="sum">
+        <descriptions defaultDescription="t_id"/>
+      </viewAttribute>
+      <viewAttribute id="Type">
+        <descriptions defaultDescription="Type"/>
+      </viewAttribute>
+      <viewAttribute id="Brand_name">
+        <descriptions defaultDescription="Brand_name"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="c_id" source="c_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="image" source="image"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="p_id" source="p_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="paint_name" source="paint_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="t_id" source="t_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Type" source="Type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Brand_name" source="Brand_name"/>
+    </input>
+    <windowFunction>
+      <partitionViewAttributeName>t_id</partitionViewAttributeName>
+      <order byViewAttributeName="t_id" direction="DESC"/>
+      <rankThreshold>
+        <value>2000000</value>
+      </rankThreshold>
+      <rankViewAttributeName>interior_id</rankViewAttributeName>
+    </windowFunction>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Rank_1">
+  <attributes>
+    <attribute id="image" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="image"/>
+      <keyMapping columnObjectName="Rank_1" columnName="image"/>
+    </attribute>
+    <attribute id="paint_name" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="paint_name"/>
+      <keyMapping columnObjectName="Rank_1" columnName="paint_name"/>
+    </attribute>
+    <attribute id="Type" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Type"/>
+      <keyMapping columnObjectName="Rank_1" columnName="Type"/>
+    </attribute>
+    <attribute id="Brand_name" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Brand_name"/>
+      <keyMapping columnObjectName="Rank_1" columnName="Brand_name"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="c_id" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="c_id"/>
+      <measureMapping columnObjectName="Rank_1" columnName="c_id"/>
+    </measure>
+    <measure id="p_id" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="p_id"/>
+      <measureMapping columnObjectName="Rank_1" columnName="p_id"/>
+    </measure>
+    <measure id="t_id" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="t_id"/>
+      <measureMapping columnObjectName="Rank_1" columnName="t_id"/>
+    </measure>
+    <measure id="interior_id" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="interior_id"/>
+      <measureMapping columnObjectName="Rank_1" columnName="interior_id"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="444"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="App.db::paint.paint_details" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="App.db::paint.paint_type" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="110" y="357"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="App.db::paint.brand_name" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Rank_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="222"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

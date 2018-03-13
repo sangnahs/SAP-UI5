@@ -1,0 +1,23 @@
+{   "format_version": 1,
+     "imports":
+     [
+     {
+     "column_mappings" : {
+     "t_id" : 1,
+     "Type" : 2
+     },
+     "import_settings" : {
+     "import_columns" : [
+     "t_id",
+     "Type"
+     ]
+     },
+     "source_data" : {
+     "data_type": "CSV",
+     "file_name": "App.db::paint_type.csv",
+     "has_header": false,
+     "dialect": "HANA",
+     "type_config": { "delimiter": ";" }
+     },       
+     "target_table" : "App.db::paint.paint_type" 
+     }    ]  } 

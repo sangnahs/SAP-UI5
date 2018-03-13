@@ -1,0 +1,199 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "ui",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "hanatemplates.basicSAPUI5ApplicationProject",
+			"version": "0.0.0"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ui.view.root",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+
+		
+
+
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ui.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+   "config": {
+  "routerClass": "sap.m.routing.Router",
+  "viewType": "XML",
+  "viewPath": "ui.view",
+  "controlId": "splitapp",
+  "transition": "slide",
+  "controlAggregation": "detailPages"
+   },
+   "routes": [
+  {
+   "pattern": "",
+   "name": "master",
+   "target": "master",
+   "subroutes":[
+   	{
+   "pattern": "",
+   "name": "detail",
+   "target": "detail"
+   	},
+   	{
+   	"pattern": "interior_detail",
+   "name": "interior_detail",
+   "target": "interior_detail"
+   	},{
+   		"pattern":"exterior_detail",
+   		"name":"exterior_detail",
+   		"target":"exterior_detail"
+   	},{
+   		"pattern":"metal_detail",
+   		"name":"metal_detail",
+   		"target":"metal_detail"
+   	},{
+   		"pattern":"wood_detail",
+   		"name":"wood_detail",
+   		"target":"wood_detail"
+   	},{
+   		"pattern":"paint/{invoicePath}",
+   		"name":"paint",
+   		"target":"paint"
+   	},{
+   		"pattern":"detail_view/{path}",
+   		"name":"detail_view",
+   		"target":"detail_view"
+   	},{
+   		"pattern":"asian",
+   		"name":"asian",
+   		"target":"asian"
+   	},{
+   		"pattern":"berger",
+   		"name":"berger",
+   		"target":"berger"
+   	},{
+   		"pattern":"dulux",
+   		"name":"dulux",
+   		"target":"dulux"
+   	},{
+   		"pattern":"nerolac",
+   		"name":"nerolac",
+   		"target":"nerolac"
+   	},{
+   		"pattern":"order",
+   		"name":"order",
+   		"target":"order"
+   	},{
+   		"pattern":"paint_view",
+   		"name":"paint_view",
+   		  "viewType": "JS",
+   		"target":"paint_view"
+   	}
+   	]
+  }
+   ],
+   "targets": {
+  "master": {
+   "viewName": "master"
+  },
+  "detail":{
+  	"viewName": "detail"
+  },
+  "interior_detail": {
+   "viewName": "interior_detail"
+  },
+  "exterior_detail":{
+  	"viewName":"exterior_detail"
+  },
+  "metal_detail":{
+  	"viewName":"metal_detail"
+  },
+  "wood_detail":{
+  	"viewName":"wood_detail"
+  },
+  "detail_view":{
+  	"viewName":"detail_view"
+  },
+  "paint":{
+  	"viewName":"paint"
+  },
+  "asian":{
+  	"viewName":"asian"
+  },
+  "berger":{
+  	"viewName":"berger"
+  },
+  "dulux":{
+  	"viewName":"dulux"
+  },
+  "nerolac":{
+  	"viewName":"nerolac"
+  },
+  "order":{
+  	"viewName":"order"
+  },
+  "paint_view":{
+  	  "viewType": "JS",
+  	"viewName":"paint_view"
+  }
+    }
+  }
+	}
+}

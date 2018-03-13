@@ -1,0 +1,19 @@
+<mvc:View controllerName="ui.controller.root" displayBlock="true" id="Rootid" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<SplitApp id="splitapp">
+      <masterPages> 
+          <mvc:XMLView viewName="ui.view.master" id="Masterid" />
+             
+    </masterPages>
+    <detailPages>
+         <!-- some views here as well for your detailed pages -->
+             <mvc:XMLView viewName="ui.view.detail" id="Detailid" />
+           <mvc:XMLView viewName="ui.view.detail1" id="Detailid1"/>
+
+   </detailPages> 
+		</SplitApp>
+		  
+</mvc:View>

@@ -1,0 +1,70 @@
+namespace "App"."db";
+
+context paint {
+
+    /*@@layout{"layoutInfo":{"x":313,"y":295.5}}*/
+    entity brand_name {
+        key c_id       : Integer;
+            Brand_name : String(100);
+    };
+
+    /*@@layout{"layoutInfo":{"x":52,"y":292.5}}*/
+    entity paint_type {
+        key t_id : Integer;
+            Type : String(100);
+    };
+
+    /*@@layout{"layoutInfo":{"x":213,"y":95.5}}*/
+    entity paint_details {
+        key p_id       : Integer;
+            c_id       : Integer;
+            t_id       : Integer;
+            paint_name : String(500);
+            image      : String(500);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-149,"y":140.5}}*/
+    entity color_table {
+            color_name : String(200);
+        key color_id   : Integer;
+            rgb_value  : String(100);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-277,"y":322.5}}*/
+    entity order_details {
+        product_id : Integer;
+        paint_name : String(100);
+        brand_name : String(100);
+        p_type     : String(100);
+        available  : String(100);
+        durability : String(100);
+        price      : Integer;
+        image      : String(500);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-372,"y":196.5}}*/
+    entity paint_desc {
+        key p_id               : Integer;
+            durability         : String(100);
+            Available_in_packs : String(200);
+            price_Rs           : Double;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-9,"y":-26}}*/
+    entity paint_color {
+        p_id     : Integer;
+        color_id : Integer;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-332,"y":-40.5}}*/
+    entity AvailableQunatity {
+        p_id              : Integer;
+        AvailableQunatity : String(100);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-611,"y":92.5}}*/
+    entity quantity {
+        p_id     : Integer;
+        quantity : Integer;
+    };
+};

@@ -1,0 +1,14 @@
+PROCEDURE "App.db.procedure::union_views" (IN tid_1 integer,tid_2 integer,out op "App.db::paint_desc" )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+  op = select * from "App.db::paint_desc" where "t_id"=tid_1
+   union
+   select * from "App.db::paint_desc" where "t_id"=tid_2;
+   
+END

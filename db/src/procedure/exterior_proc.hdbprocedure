@@ -1,0 +1,8 @@
+PROCEDURE "App.db.procedure::exterior_proc" (in tid integer, out op  "App.db::paint_desc") 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	READS SQL DATA AS
+BEGIN
+op = select * from  "App.db::paint_desc" where "t_id"=tid;
+END;

@@ -1,0 +1,54 @@
+<mvc:View controllerName="ui.controller.paint" displayBlock="true" id="paintid" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	>
+	<App>
+		<pages  class="sapUiStdPage" showNavButton="true" navButtonText="Back" 
+		navButtonPress="onPressDetailBack">
+			<Page>
+        
+
+
+			<List id="list"
+				headerText="{paint_name}" >
+				<ObjectListItem id="image"
+				icon="{image}" />
+				<DisplayListItem id="pid"
+					label="Product id"
+					value="{p_id}" />
+				<DisplayListItem id="pname"
+					label=" Product Name"
+					value="{paint_name}" />
+				<DisplayListItem id="brandname"
+					label=" Brand Name"
+					value="{Brand_name}" />
+				<DisplayListItem id="type"
+					label="Type"
+					value="{Type}" />
+				<DisplayListItem id="price"
+					label="price in Rs"
+					value="{price_Rs}"
+				/>
+				<DisplayListItem id="durability"
+					label="Durability"
+					value="{durability}"
+					/>
+				<DisplayListItem id="availability"
+					label="Availabitity"
+					value="{Available_in_packs}"
+					/>
+			</List>
+			<Text text="Available Colors"/>
+	<TileContainer id="color">
+		
+</TileContainer>
+			<headerContent>
+				<Button text="Back" id="back_button" press="back"/>
+				<Button text="cart" width="100px" id="__button1" press="cart"/>
+			    <Button text="Order Now" width="100px" id="__button0" press="order"/>
+			</headerContent></Page>
+		</pages>
+	</App>
+</mvc:View>

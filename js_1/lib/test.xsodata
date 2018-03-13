@@ -1,0 +1,37 @@
+service{
+//"App.db::surface.Surface" as "Paint_View";
+//"App.db::surface.PaintDetails" as "Paint_Details";
+//"App.db::surface.Exterior" as "exterior_paints";
+"App.db::paint_v1" as "all_paint"
+keys("p_id"); 
+"App.db::ext_view1" as "exterior_paint"
+keys("ext_id");
+"App.db::interior_view1" as "interior_paint"
+keys("interior_id");
+"App.db::metal_view1" as "metal_paint"
+keys("metal_id");
+"App.db::wood_view1" as "wood_paint"
+keys("wood_id");
+"App.db::asian_paints_view" as "asian_paint"
+keys("berger_id");
+"App.db::berger_paint_view" as "berger_paint"
+keys("asian_id");
+"App.db::dulux_paint_view" as "dulux_paint"
+keys("dulux_id");
+"App.db::nerolac_paint_view" as "nerolac_paint"
+keys("nerolac_id");
+"App.db::paint_desc" as "paint_desc"
+keys("p_id");
+"App.db::color" as "color"
+ keys generate local "id"
+parameters via entity "view_color" results property "Execute";
+//"App.db::union_view" as "union_view"
+//keys("p_id");
+"App.db::view_3_4" as "view"
+keys("p_id")
+parameters via entity "view_InputParams" results property "Execute";
+
+"App.db::paint.order_details" as "orderlist" keys("product_id");
+//"App.db::paint.order_details" as "orderDetails";
+//"App.db::data.json" as "data";
+}

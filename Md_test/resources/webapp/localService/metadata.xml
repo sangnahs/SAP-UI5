@@ -1,0 +1,31 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="default">
+            <EntityType Name="Paint_ViewType">
+                <Key>
+                    <PropertyRef Name="surface_id"/>
+                </Key>
+                <Property Name="surface_id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="surface_type" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="Paint_DetailsType">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="CompanyName" Type="Edm.String" MaxLength="100"/>
+                <Property Name="id_type" Type="Edm.Int32"/>
+                <Property Name="PaintName" Type="Edm.String" MaxLength="500"/>
+                <Property Name="id" Type="Edm.Int32" Nullable="false"/>
+            </EntityType>
+            <EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Paint_View" EntityType="default.Paint_ViewType"/>
+                <EntitySet Name="Paint_Details" EntityType="default.Paint_DetailsType"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

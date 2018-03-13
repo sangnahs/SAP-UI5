@@ -1,0 +1,27 @@
+{   "format_version": 1,
+     "imports":
+     [
+     {
+     "column_mappings" : {
+     "p_id" : 1,
+     "durability" : 2,
+     "Available_in_packs" : 3,
+     "price_Rs" : 4
+     },
+     "import_settings" : {
+     "import_columns" : [
+     "p_id",
+     "durability",
+     "Available_in_packs",
+     "price_Rs"
+     ]
+     },
+     "source_data" : {
+     "data_type": "CSV",
+     "file_name": "App.db::durability.csv",
+     "has_header": false,
+     "dialect": "HANA",
+     "type_config": { "delimiter": ";" }
+     },       
+     "target_table" : "App.db::paint.paint_desc" 
+     }    ]  } 

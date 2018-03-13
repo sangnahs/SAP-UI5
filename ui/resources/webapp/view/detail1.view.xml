@@ -1,0 +1,25 @@
+<mvc:View controllerName="ui.controller.detail1" displayBlock="true" id="Detailid1" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+            <Page id="mainpageid" title="Interior Paints" class="sapUiStdPage" showNavButton="true"
+				  navButtonText="Back" navButtonPress="onPressDetailBack">
+				<content>
+					 <TileContainer
+			id="container"
+			 
+			tiles="{path :'model2>/exterior_paint'}">
+			<StandardTile
+				icon="{model2>image},{height>30px},{width>30px}"
+				info="{model2>paint_name}" />
+		</TileContainer>
+				</content>
+			</Page>
+
+		</pages>
+	</App>
+		
+</mvc:View>

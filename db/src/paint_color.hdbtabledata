@@ -1,0 +1,23 @@
+{   "format_version": 1,
+     "imports":
+     [
+     {
+     "column_mappings" : {
+     "p_id" : 1,
+     "color_id" : 2
+     },
+     "import_settings" : {
+     "import_columns" : [
+     "p_id",
+     "color_id"
+     ]
+     },
+     "source_data" : {
+     "data_type": "CSV",
+     "file_name": "App.db::paint_color.csv",
+     "has_header": false,
+     "dialect": "HANA",
+     "type_config": { "delimiter": ";" }
+     },       
+     "target_table" : "App.db::paint.paint_color" 
+     }    ]  } 

@@ -1,0 +1,29 @@
+{   "format_version": 1,
+     "imports":
+     [
+     {
+     "column_mappings" : {
+     "p_id" : 1,
+     "c_id" : 2,
+     "t_id" : 3,
+     "paint_name" : 4,
+     "image" : 5
+     },
+     "import_settings" : {
+     "import_columns" : [
+     "p_id",
+     "c_id",
+     "t_id",
+     "paint_name",
+     "image"
+     ]
+     },
+     "source_data" : {
+     "data_type": "CSV",
+     "file_name": "App.db::paint_details.csv",
+     "has_header": false,
+     "dialect": "HANA",
+     "type_config": { "delimiter": ";" }
+     },       
+     "target_table" : "App.db::paint.paint_details" 
+     }    ]  } 

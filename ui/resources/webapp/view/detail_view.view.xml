@@ -1,0 +1,22 @@
+<mvc:View controllerName="ui.controller.detail_view" displayBlock="true" id="interiorDetailid" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+            <Page id="mainpageid" title="Paints detail" class="sapUiStdPage" showNavButton="true"
+				  navButtonText="Back" navButtonPress="onPressDetailBack">
+				<content>
+				<TileContainer id="tileContainer">
+						
+				
+					
+				</TileContainer>
+		  
+				</content>
+			</Page>
+
+		</pages>
+	</App>
+</mvc:View>

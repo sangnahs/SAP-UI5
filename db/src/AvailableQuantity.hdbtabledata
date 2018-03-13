@@ -1,0 +1,23 @@
+{   "format_version": 1,    
+    "imports":
+     [
+     {
+     "column_mappings" : {
+     "p_id" : 1,
+     "AvailableQunatity" : 2
+     },
+     "import_settings" : {
+     "import_columns" : [
+     "p_id",
+     "AvailableQunatity"
+     ]
+     },
+     "source_data" : {
+     "data_type": "CSV",
+     "file_name": "App.db::availability.csv",
+     "has_header": false,
+     "dialect": "HANA",
+     "type_config": { "delimiter": ";" }
+     },       
+     "target_table" : "App.db::paint.AvailableQunatity" 
+     }    ] }  

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="App.db::order" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="order"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="App.db::paint.order_details">
+    <resourceUri>App.db::paint.order_details</resourceUri>
+  </DataSource>
+  <DataSource id="App.db::paint.quantity">
+    <resourceUri>App.db::paint.quantity</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="product_id" aggregationType="sum">
+        <descriptions defaultDescription="product_id"/>
+      </viewAttribute>
+      <viewAttribute id="paint_name">
+        <descriptions defaultDescription="paint_name"/>
+      </viewAttribute>
+      <viewAttribute id="brand_name">
+        <descriptions defaultDescription="brand_name"/>
+      </viewAttribute>
+      <viewAttribute id="p_type">
+        <descriptions defaultDescription="p_type"/>
+      </viewAttribute>
+      <viewAttribute id="available">
+        <descriptions defaultDescription="available"/>
+      </viewAttribute>
+      <viewAttribute id="durability">
+        <descriptions defaultDescription="durability"/>
+      </viewAttribute>
+      <viewAttribute id="price" aggregationType="sum">
+        <descriptions defaultDescription="price"/>
+      </viewAttribute>
+      <viewAttribute id="image">
+        <descriptions defaultDescription="image"/>
+      </viewAttribute>
+      <viewAttribute id="quantity" aggregationType="sum">
+        <descriptions defaultDescription="quantity"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="App.db::paint.order_details">
+      <mapping xsi:type="Calculation:AttributeMapping" target="product_id" source="product_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="paint_name" source="paint_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="brand_name" source="brand_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="p_type" source="p_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="available" source="available"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="durability" source="durability"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="price" source="price"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="image" source="image"/>
+    </input>
+    <input node="App.db::paint.quantity">
+      <mapping xsi:type="Calculation:AttributeMapping" target="quantity" source="quantity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="product_id" source="p_id"/>
+    </input>
+    <joinAttribute name="product_id"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="paint_name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="paint_name"/>
+      <keyMapping columnObjectName="Join_1" columnName="paint_name"/>
+    </attribute>
+    <attribute id="brand_name" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="brand_name"/>
+      <keyMapping columnObjectName="Join_1" columnName="brand_name"/>
+    </attribute>
+    <attribute id="p_type" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="p_type"/>
+      <keyMapping columnObjectName="Join_1" columnName="p_type"/>
+    </attribute>
+    <attribute id="available" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="available"/>
+      <keyMapping columnObjectName="Join_1" columnName="available"/>
+    </attribute>
+    <attribute id="durability" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="durability"/>
+      <keyMapping columnObjectName="Join_1" columnName="durability"/>
+    </attribute>
+    <attribute id="image" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="image"/>
+      <keyMapping columnObjectName="Join_1" columnName="image"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="product_id" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="product_id"/>
+      <measureMapping columnObjectName="Join_1" columnName="product_id"/>
+    </measure>
+    <measure id="price" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="price"/>
+      <measureMapping columnObjectName="Join_1" columnName="price"/>
+    </measure>
+    <measure id="quantity" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="quantity"/>
+      <measureMapping columnObjectName="Join_1" columnName="quantity"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="106" y="278"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="App.db::paint.order_details" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="App.db::paint.quantity" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

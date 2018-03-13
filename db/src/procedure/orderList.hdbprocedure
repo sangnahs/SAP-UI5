@@ -1,0 +1,19 @@
+PROCEDURE "App.db.procedure::orderList" (IN pid integer, paint_name varchar(100), brand_name varchar(100), p_type varchar(100), available varchar(200), durability varchar(100), price integer,image varchar(500),
+OUT ex_error NVARCHAR(100))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+    AS
+BEGIN
+declare noc integer; 
+select count(*) into noc 
+    from "App.db::paint.order_details" 
+    where "product_id" = pid; 
+
+if :noc > 0 then 
+        ex_error := 'ERROR: pid ' || :pid || ' already exists!'; 
+    else 
+       insert into "App.db::paint.order_details" 
+           values (pid,paint_name,brand_name,p_type,available,durability,price,image); 
+    end if; 
+END

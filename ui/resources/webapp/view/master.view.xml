@@ -1,0 +1,36 @@
+<mvc:View controllerName="ui.controller.master" displayBlock="true" id="Masterid" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="Master">
+				<content>
+				 <f:SimpleForm
+                 editable="true"
+                 layout="ResponsiveGridLayout"
+                 labelSpanL="4"
+                 labelSpanM="4">
+                 <f:content>
+                 <Label text="Surface" />
+                 <CheckBox text="Interior" id="interior_check_id" activeHandling="true" select="handleInteriorSelect"/>
+                 <CheckBox text="Exterior" id="exterior_check_id" activeHandling="true" select="handleExteriorSelect"/>
+                 <CheckBox text="Metal" id="metal_check_id" activeHandling="true" select="handleMetalSelect"/>
+                 <CheckBox text="Wood" id="wood_check_id" activeHandling="true" select="handleWoodSelect"/>
+                 <Label text="Company" />
+                 <RadioButton text="Asian" id="asian" selected = "true" select="handleAsianSelect"/>
+                 <RadioButton text="Berger" id="berger" selected = "" select="handleBergerSelect"/>
+                 <RadioButton text="Dulux" id="dulux" selected = "" select="handleDuluxSelect"/>
+                 <RadioButton text="Nerolac" id="nerolac" selected = "" select="handleNerolacSelect"/>
+                 <Text text="Price"/>
+		<Slider id="slider" enableTickmarks="true" step="100" min="100" max="700" class="sapUiSmallMarginBottom" width="200px" change="price"/>
+
+                <Button text="submit" id="submit" press="onsubmit"/>
+                 </f:content>
+             </f:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

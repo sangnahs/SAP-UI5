@@ -1,0 +1,7 @@
+{
+	"welcomeFile": "webapp/index.html",
+	"authenticationMethod": "none",
+	"routes": [{"source": "^/test.xsodata/.*$", "destination": "js_1_be"},{
+		"source": ".*\\.xsjs", "destination": "js_1_be"}
+	] 
+}	

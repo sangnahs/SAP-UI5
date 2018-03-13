@@ -1,0 +1,27 @@
+<mvc:View controllerName="ui.controller.metal_detail" displayBlock="true" id="metalDetailid" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+            <Page id="mainpageid" title="Metal Paints" class="sapUiStdPage" showNavButton="true"
+				  navButtonText="Back" navButtonPress="onPressDetailBack">
+				<content>
+				
+		  <TileContainer
+			id="container"
+			 
+			tiles="{path :'model2>/metal_paint'}">
+			<StandardTile 
+				icon="{model2>image}"
+				title="{model2>paint_name}"
+				press="onpress"/>
+		</TileContainer>
+				</content>
+			</Page>
+
+		</pages>
+	</App>
+</mvc:View>
+
